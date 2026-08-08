@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Warrior Game</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <style>
+        body { background-color: #121212; color: #fff; }
+    #game-container { display: flex; justify-content: center; margin: 20px auto; width: fit-content; }
+    .modal.fade .modal-dialog { transform: translateY(-80px); transition: transform 0.3s ease-out; }
+    .modal.show .modal-dialog { transform: translateY(0); }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="container d-flex justify-content-between align-items-center py-3 border-bottom border-secondary">
+    <h3 class="m-0 text-warning">⚔️ The Warrior Game</h3>
+    <div id="authSection">
+      <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
+        تسجيل الدخول
+      </button>
+    </div>
+  </header>
+
+  <main class="container text-center my-4">
+    <div id="game-container"></div>
+  </main>
+
+    <!-- Modal تسجيل الدخول -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-dark">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">تسجيل الدخول</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="loginAlert" class="alert d-none" role="alert"></div>
+          <form id="loginForm">
+            <div class="mb-3 text-start">
+              <label for="email" class="form-label">البريد الإلكتروني</label>
+              <input type="email" class="form-control" id="email" required placeholder="user@example.com">
+            </div>
+            <div class="mb-3 text-start">
+              <label for="password" class="form-label">كلمة المرور</label>
+              <input type="password" class="form-control" id="password" required placeholder="******">
+            </div>
+            <button type="submit" id="loginSubmitBtn" class="btn btn-primary w-100">دخول</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/game.js"></script>
+</body>
+</html>

@@ -5,11 +5,11 @@
   "main": "app.ts",
   "type": "module",
   "scripts": {
-    "build:client": "esbuild src/client/game.ts --outfile=public/js/game.js --bundle --watch",
-    "build": "tsc",
-    "start": "node dist/app.js",
-    "dev": "tsx watch src/app.ts"
-  },
+  "build": "esbuild src/client/game.ts --outfile=public/js/game.js --bundle && tsc",
+  "start": "node dist/app.js",
+  "dev": "tsx watch src/app.ts",
+  "build:client": "esbuild src/client/game.ts --outfile=public/js/game.js --bundle --watch"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

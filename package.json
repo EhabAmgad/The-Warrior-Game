@@ -5,8 +5,9 @@
   "main": "app.ts",
   "type": "module",
   "scripts": {
-    "start": "node dist/app.js",
     "build:client": "esbuild src/client/game.ts --outfile=public/js/game.js --bundle --watch",
+    "build": "tsc",
+    "start": "node dist/app.js",
     "dev": "tsx watch src/app.ts"
   },
   "keywords": [],
@@ -39,7 +40,7 @@
     "@types/node": "^25.6.0",
     "esbuild": "^0.28.1",
     "ts-node": "^10.9.2",
-    "tsx": "^4.23.5",
+    "tsx": "^4.23.11",
     "typescript": "^6.0.3"
   },
   "ts-node": {

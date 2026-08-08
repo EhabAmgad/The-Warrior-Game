@@ -2,9 +2,9 @@
 import express from 'express';
 
 //import modules
-import ctrl from '../controllers/mainController';
-import registerValidation from '../middlewares/registerValidator';
-import validator from '../middlewares/validator';
+import ctrl from '../controllers/mainController.js';
+import registerValidation from '../middlewares/registerValidator.js';
+import validator from '../middlewares/validator.js';
 
 const router = express.Router();
 

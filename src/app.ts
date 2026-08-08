@@ -4,8 +4,8 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import dotenv from 'dotenv';
 
-import router from './routes/router';
-import errorHandler from './middlewares/errorHandler';
+import router from './routes/router.js'; // 👈 تنبيه: في ES Modules أضف .js هنا أو اضبط الاستدعاء
+import errorHandler from './middlewares/errorHandler.js';
 
 dotenv.config();
 
@@ -13,17 +13,19 @@ const app = express();
 const PORT = process.env.PORT || 3500;
 const DATABASEURL = process.env.DB_URL as string;
 
-// 1. View Engine Setup (مسار دقيق يعمل محلياً وعلى Vercel)
+const rootDir = process.cwd();
+
+// 1. View Engine Setup
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(rootDir, 'src', 'views'));
 
 // 2. Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(rootDir, 'public')));
 app.use(cookieParser());
 
-// 3. Connection to MongoDB (Cached Connection)
+// 3. Connection to MongoDB
 if (DATABASEURL) {
   mongoose
     .connect(DATABASEURL)
@@ -37,7 +39,7 @@ app.use(router);
 // 5. Error Handler
 app.use(errorHandler);
 
-// شغّل الـ listen محلياً فقط
+// Listen locally
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
     console.log(`The Server port is ==> http://localhost:${PORT}`);

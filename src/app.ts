@@ -48,3 +48,6 @@ mongoose
     console.log('Failed to connect to DataBase ..!!');
     console.log('The error is :', err);
   });
+
+  // في نهاية src/app.ts
+export default app;

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import userModel from "../models/usersModel";
+import userModel from "../models/usersModel.js";
 
 interface UserData {
   email?: string;

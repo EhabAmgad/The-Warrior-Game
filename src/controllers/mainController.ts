@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import asyncHandler from 'express-async-handler'; // أو الميدل وير الخاص بك
-import userServices from '../services/userServices';
+import userServices from '../services/userServices.js';
 
 const game_home_get = (req: Request, res: Response) => {
   res.status(200).render('index');
